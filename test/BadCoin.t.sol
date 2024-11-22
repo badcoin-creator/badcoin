@@ -26,4 +26,9 @@ contract VBadCoinTest is Test {
         coin.transfer(address(1), 666);
         assertEq(coin.balanceOf(address(1)), 666);
     }
+
+    function test_burn() public {
+        coin.burn(123 ether);
+        assertEq(coin.balanceOf(address(this)), 484848484848 ether - 123 ether);
+    }
 }
