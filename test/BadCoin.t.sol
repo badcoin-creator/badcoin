@@ -1,0 +1,29 @@
+// SPDX-License-Identifier: UNLICENSED
+pragma solidity ^0.8.13;
+
+import {Test, console} from "forge-std/Test.sol";
+import {BadCoin} from "../src/BadCoin.sol";
+
+contract VBadCoinTest is Test {
+    BadCoin public coin;
+
+    function setUp() public {
+        coin = new BadCoin();
+    }
+
+    function test_Mint() public view {
+        assertEq(coin.balanceOf(address(this)), 484848484848 ether);
+        assertEq(coin.totalSupply(), 484848484848 ether);
+    }
+
+    function test_Params() public view {
+        assertEq(coin.name(), "badcoin");
+        assertEq(coin.symbol(), "BAD");
+        assertEq(coin.decimals(), 18);
+    }
+
+    function test_transfer() public {
+        coin.transfer(address(1), 666);
+        assertEq(coin.balanceOf(address(1)), 666);
+    }
+}
