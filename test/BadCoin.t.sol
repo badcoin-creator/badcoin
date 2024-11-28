@@ -6,9 +6,10 @@ import {BadCoin} from "../src/BadCoin.sol";
 
 contract BadCoinTest is Test {
     BadCoin public coin;
+    string private uri = "https://test.com";
 
     function setUp() public {
-        coin = new BadCoin();
+        coin = new BadCoin(uri);
     }
 
     function test_Mint() public view {
@@ -30,5 +31,9 @@ contract BadCoinTest is Test {
     function test_burn() public {
         coin.burn(123 ether);
         assertEq(coin.balanceOf(address(this)), 484848484848 ether - 123 ether);
+    }
+
+    function test_uri() public view {
+        assertEq(coin.tokenURI(), uri);
     }
 }
