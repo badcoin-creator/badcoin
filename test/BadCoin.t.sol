@@ -19,7 +19,7 @@ contract BadCoinTest is Test {
     }
 
     function test_Params() public view {
-        assertEq(coin.name(), "badcoin");
+        assertEq(coin.name(), "BADcoin");
         assertEq(coin.symbol(), "BAD");
         assertEq(coin.decimals(), 18);
     }
