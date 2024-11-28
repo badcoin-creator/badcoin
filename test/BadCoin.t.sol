@@ -36,4 +36,15 @@ contract BadCoinTest is Test {
     function test_uri() public view {
         assertEq(coin.tokenURI(), uri);
     }
+
+    function test_uri_update() public {
+        string memory newURI = "newURI";
+        coin.updateTokenURI(newURI);
+        assertEq(coin.tokenURI(), newURI);
+    }
+
+    function testFail_uri_update_not_owner() public {
+        vm.prank(address(0));
+        coin.updateTokenURI("newURI");
+    }
 }
