@@ -4,7 +4,7 @@ pragma solidity ^0.8.13;
 import {Test, console} from "forge-std/Test.sol";
 import {BadCoin} from "../src/BadCoin.sol";
 
-contract VBadCoinTest is Test {
+contract BadCoinTest is Test {
     BadCoin public coin;
 
     function setUp() public {
