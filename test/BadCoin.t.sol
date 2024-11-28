@@ -7,14 +7,15 @@ import {BadCoin} from "../src/BadCoin.sol";
 contract BadCoinTest is Test {
     BadCoin public coin;
     string private uri = "https://test.com";
+    uint256 private totalSupply = 1000000000 ether;
 
     function setUp() public {
         coin = new BadCoin(uri);
     }
 
     function test_Mint() public view {
-        assertEq(coin.balanceOf(address(this)), 484848484848 ether);
-        assertEq(coin.totalSupply(), 484848484848 ether);
+        assertEq(coin.balanceOf(address(this)), totalSupply);
+        assertEq(coin.totalSupply(), totalSupply);
     }
 
     function test_Params() public view {
@@ -30,7 +31,7 @@ contract BadCoinTest is Test {
 
     function test_burn() public {
         coin.burn(123 ether);
-        assertEq(coin.balanceOf(address(this)), 484848484848 ether - 123 ether);
+        assertEq(coin.balanceOf(address(this)), totalSupply - 123 ether);
     }
 
     function test_uri() public view {
