@@ -1,0 +1,7 @@
+{
+  "name": "badcoin",
+  "symbol": "BAD",
+  "decimals": 18,
+  "description": "The only BAD token in the space C8H11NO2",
+  "image": "https://raw.githubusercontent.com/badcoin-creator/badcoin/refs/heads/main/data/placeholder-image.png"
+}
