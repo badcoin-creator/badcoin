@@ -7,17 +7,10 @@ import {ERC20Permit} from "@openzeppelin/contracts/token/ERC20/extensions/ERC20P
 import {Ownable, Ownable2Step} from "@openzeppelin/contracts/access/Ownable2Step.sol";
 import {ERC20TokenMetadata} from "./interfaces/IERC20TokenMetadata.sol";
 
-contract BadCoin is
-    ERC20Burnable,
-    ERC20Permit,
-    ERC20TokenMetadata,
-    Ownable2Step
-{
+contract BadCoin is ERC20Burnable, ERC20Permit, ERC20TokenMetadata, Ownable2Step {
     string public tokenURI;
 
-    constructor(
-        string memory _tokenURI
-    ) ERC20("badcoin", "BAD") ERC20Permit("badcoin") Ownable(msg.sender) {
+    constructor(string memory _tokenURI) ERC20("badcoin", "BAD") ERC20Permit("badcoin") Ownable(msg.sender) {
         _mint(msg.sender, 484848484848 ether);
         tokenURI = _tokenURI;
     }
